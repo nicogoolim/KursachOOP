@@ -184,20 +184,27 @@ void CMFCApplication2Dlg::OnBnClickedCancel()
 
 void CMFCApplication2Dlg::OnBnClickedButton1()
 {
+
 	StudentDlg win;
+	ShowWindow(SW_HIDE);
 	win.DoModal();
+	ShowWindow(SW_SHOW);
 }
 
 
 void CMFCApplication2Dlg::OnBnClickedButton2()
 {
 	TeacherDlg win;
+	ShowWindow(SW_HIDE);
 	win.DoModal();
+	ShowWindow(SW_SHOW);
 }
 
 
 void CMFCApplication2Dlg::OnBnClickedButton3()
 {
 	DecanDlg win;
+	ShowWindow(SW_HIDE);
 	win.DoModal();
+	ShowWindow(SW_SHOW);
 }

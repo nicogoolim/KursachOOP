@@ -184,6 +184,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="DecanDlg.h" />
+    <ClInclude Include="FileWorker.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MFCApplication2.h" />
     <ClInclude Include="MFCApplication2Dlg.h" />
