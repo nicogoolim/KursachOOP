@@ -9,6 +9,7 @@
 #include "afxdialogex.h"
 #include "StudentDlg.h"
 #include "TeacherDlg.h"
+#include "DecanDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -74,6 +75,7 @@ BEGIN_MESSAGE_MAP(CMFCApplication2Dlg, CDialogEx)
 	ON_BN_CLICKED(IDCANCEL, &CMFCApplication2Dlg::OnBnClickedCancel)
 	ON_BN_CLICKED(IDC_BUTTON1, &CMFCApplication2Dlg::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON2, &CMFCApplication2Dlg::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_BUTTON3, &CMFCApplication2Dlg::OnBnClickedButton3)
 END_MESSAGE_MAP()
 
 
@@ -190,5 +192,12 @@ void CMFCApplication2Dlg::OnBnClickedButton1()
 void CMFCApplication2Dlg::OnBnClickedButton2()
 {
 	TeacherDlg win;
+	win.DoModal();
+}
+
+
+void CMFCApplication2Dlg::OnBnClickedButton3()
+{
+	DecanDlg win;
 	win.DoModal();
 }
