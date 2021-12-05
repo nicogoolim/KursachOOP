@@ -5,17 +5,17 @@ using namespace std;
 
 
 template <class T>
-class FileWorker {
+class FileReader {
 private:
 	string path;
 public:
-	FileWorker(string userPath) : path(userPath) {}
+	FileReader(string userPath) : path(userPath) {}
 	vector<T> read() {
-		T cur;
 		vector<T> arr1;
 		ifstream fin(path);
 		while (true) { 
 			if (fin.eof()) break;
+			T cur;
 			fin >> cur;
 			arr1.push_back(cur);
 		}
@@ -26,5 +26,3 @@ public:
 
 	}
 };
-
-/**/

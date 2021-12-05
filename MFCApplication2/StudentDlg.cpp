@@ -49,14 +49,37 @@ void StudentDlg::OnBnClickedOk()
 	CDialogEx::OnOK();
 }
 vector<Student> arrStud;
-
+vector<lessons> arrLess;
+vector<marks> arrMarks;
 void StudentDlg::OnBnClickedButton1()
 {
 	UpdateData(true);
-	
-	
-	
-
+	int selectedStud = StudList.GetCurSel()+1;
+	marks marksOfStud;
+	vector<string> lessOfStud;
+	for each (marks var in arrMarks)
+	{
+		if (var.Studid == selectedStud) marksOfStud = var;
+	}
+	for each (int var in marksOfStud.idLess)
+	{
+		for (int i = 0; i < arrLess.size(); i++)
+		{
+			if (arrLess[i].nameById(var))
+			{
+				lessOfStud.push_back(arrLess[i].name);
+			}
+			
+		}
+		
+	}
+	int a = 0;
+	for (int i = 0; i < marksOfStud.mark.size(); i++)
+	{
+		string str = lessOfStud[i] + " " + (char)('0' + marksOfStud.mark[i]);
+		CString S(str.c_str());
+		MarksList.InsertString(-1, S);
+	}
 	UpdateData(false);
 }
 
@@ -69,14 +92,17 @@ BOOL StudentDlg::OnInitDialog()
 	string pathMarks = "marks.txt";
 	string pathLess = "lesson.txt";
 
-	FileWorker<Student> fwstud(pathStud);
-	arrStud = fwstud.read();
-	FileWorker<marks> marks(pathMarks);
+	FileReader<Student> fwStud(pathStud);
+	FileReader<marks> fwMarks(pathMarks);
+	FileReader<lessons> fwLess(pathLess);
+	arrStud = fwStud.read();
+	arrMarks = fwMarks.read();
+	arrLess = fwLess.read();
 	for each (Student var in arrStud)
 	{
 		CString S;
 		S = var.fio.c_str();
-		StudList.AddString(S);
+		StudList.InsertString(-1,S);
 	}
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // Исключение: страница свойств OCX должна возвращать значение FALSE
