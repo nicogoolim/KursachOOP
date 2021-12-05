@@ -193,6 +193,7 @@
     <ClInclude Include="StudentDlg.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TeacherDlg.h" />
+    <ClInclude Include="Person.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DecanDlg.cpp" />
@@ -215,6 +216,11 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\MFCApplication2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="lesson.txt" />
+    <Text Include="marks.txt" />
+    <Text Include="Students.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

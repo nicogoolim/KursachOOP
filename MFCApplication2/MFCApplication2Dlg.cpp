@@ -168,10 +168,7 @@ HCURSOR CMFCApplication2Dlg::OnQueryDragIcon()
 
 void CMFCApplication2Dlg::OnBnClickedOk()
 {
-	if (StudCheck==true)
-	{
-		
-	}
+
 }
 
 

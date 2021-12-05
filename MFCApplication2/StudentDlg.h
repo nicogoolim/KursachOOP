@@ -22,4 +22,15 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedOk();
+	CListBox MarksList;
+private:
+//	CString StudFio;
+public:
+	afx_msg void OnBnClickedButton1();
+	virtual BOOL OnInitDialog();
+private:
+//	CComboBox StudList;
+public:
+//	afx_msg void OnLbnSelchangeList();
+	CComboBox StudList;
 };
