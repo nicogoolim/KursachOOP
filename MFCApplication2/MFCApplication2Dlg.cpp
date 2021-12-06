@@ -78,7 +78,9 @@ BEGIN_MESSAGE_MAP(CMFCApplication2Dlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON3, &CMFCApplication2Dlg::OnBnClickedButton3)
 END_MESSAGE_MAP()
 
-
+extern vector<Student> arrStud;
+extern vector<lessons> arrLess;
+extern vector<marks> arrMarks;
 // Обработчики сообщений CMFCApplication2Dlg
 
 BOOL CMFCApplication2Dlg::OnInitDialog()
@@ -110,7 +112,16 @@ BOOL CMFCApplication2Dlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Крупный значок
 	SetIcon(m_hIcon, FALSE);		// Мелкий значок
 
-	// TODO: добавьте дополнительную инициализацию
+	string pathStud = "Students.txt";
+	string pathMarks = "marks.txt";
+	string pathLess = "lesson.txt";
+
+	FileReader<Student> fwStud(pathStud);
+	FileReader<marks> fwMarks(pathMarks);
+	FileReader<lessons> fwLess(pathLess);
+	arrStud = fwStud.read();
+	arrMarks = fwMarks.read();
+	arrLess = fwLess.read();
 
 	return TRUE;  // возврат значения TRUE, если фокус не передан элементу управления
 }

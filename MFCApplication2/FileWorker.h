@@ -22,7 +22,15 @@ public:
 		fin.close();
 		return arr1;
 	}
-	void write(string str) {
-
+	void write(vector<T> cur) {
+		ofstream fout(path);
+		for (int i = 0; i < cur.size(); i++) {
+			fout << cur[i];
+			if (i!=cur.size()-1)
+			{
+				fout << "\n";
+			}
+		}
+		fout.close();
 	}
 };

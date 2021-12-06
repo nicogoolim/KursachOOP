@@ -20,4 +20,6 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // поддержка DDX/DDV
 
 	DECLARE_MESSAGE_MAP()
+public:
+	virtual BOOL OnInitDialog();
 };

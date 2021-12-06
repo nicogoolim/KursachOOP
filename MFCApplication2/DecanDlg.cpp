@@ -32,3 +32,16 @@ END_MESSAGE_MAP()
 
 
 // Обработчики сообщений DecanDlg
+extern vector<Student> arrStud;
+extern vector<lessons> arrLess;
+extern vector<marks> arrMarks;
+
+BOOL DecanDlg::OnInitDialog()
+{
+	CDialogEx::OnInitDialog();
+
+	
+
+	return TRUE;  // return TRUE unless you set the focus to a control
+				  // Исключение: страница свойств OCX должна возвращать значение FALSE
+}

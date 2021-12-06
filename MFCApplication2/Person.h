@@ -26,6 +26,10 @@ public:
 	 getline(is, cur.fio);
 	 return is;
  }
+ inline ostream& operator<<(ostream& os, Student& cur) {
+	 os << cur.id << " " << cur.course << " " << cur.group << " " << cur.fio;
+	 return os;
+ }
  class marks {
  public:
 	 int Studid;
@@ -39,7 +43,16 @@ public:
 	 markstrToVec(str, cur.idLess, cur.mark);
 	 return is;
  }
+ inline ostream& operator<<(ostream& os, marks& cur) {
+	 os << cur.Studid<< " ";
+	 for (int i = 0; i < cur.idLess.size(); i++)
+	 {
+		 os << cur.idLess[i] << " " << cur.mark[i] << " ";
+		 return os;
+	 }
 
+	 return os;
+ }
  class lessons {
  public:
 	 int id;
@@ -59,7 +72,10 @@ public:
 	 getline(is, cur.name);
 	 return is;
  }
-
+ inline ostream& operator<<(ostream& os, lessons& cur) {
+	 os << cur.id << " " << cur.name;
+	 return os;
+ }
  inline void markstrToVec(string str, vector<int>& less, vector<int>& mark) {
 	 less.push_back(str[1] - '0');
 	 for (int i = 2; i < str.length(); i++)

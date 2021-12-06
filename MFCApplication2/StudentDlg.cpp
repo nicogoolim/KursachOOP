@@ -114,16 +114,7 @@ BOOL StudentDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	string pathStud = "Students.txt";
-	string pathMarks = "marks.txt";
-	string pathLess = "lesson.txt";
-
-	FileReader<Student> fwStud(pathStud);
-	FileReader<marks> fwMarks(pathMarks);
-	FileReader<lessons> fwLess(pathLess);
-	arrStud = fwStud.read();
-	arrMarks = fwMarks.read();
-	arrLess = fwLess.read();
+	
 	for each (Student var in arrStud)
 	{
 		CString S;
