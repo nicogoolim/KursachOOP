@@ -15,6 +15,9 @@ StudentDlg::StudentDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(StudDlg, pParent)
 
 	
+	, FIOblank(_T(""))
+	, Groupblank(_T(""))
+	, Courseblank(_T(""))
 {
 
 }
@@ -31,6 +34,9 @@ void StudentDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, STUD_LIST, MarksList);
 	//DDX_Control(pDX, IDC_StudList, StudList);
 	DDX_Control(pDX, IDC_StudList, StudList);
+	DDX_Text(pDX, IDC_EDIT1, FIOblank);
+	DDX_Text(pDX, IDC_EDIT2, Groupblank);
+	DDX_Text(pDX, IDC_EDIT3, Courseblank);
 }
 
 
@@ -53,6 +59,7 @@ vector<lessons> arrLess;
 vector<marks> arrMarks;
 void StudentDlg::OnBnClickedButton1()
 {
+	Student curStudent;
 	UpdateData(true);
 	int sa = MarksList.GetCount();
 	for (int i = 0; i < sa; i++)
@@ -62,6 +69,12 @@ void StudentDlg::OnBnClickedButton1()
 	int selectedStud = StudList.GetCurSel()+1;
 	marks marksOfStud;
 	vector<string> lessOfStud;
+	for each (Student var in arrStud)
+	{
+		if (var.studBuyId(selectedStud)) {
+			curStudent = var;
+		}
+	}
 	for each (marks var in arrMarks)
 	{
 		if (var.Studid == selectedStud) marksOfStud = var;
@@ -78,6 +91,14 @@ void StudentDlg::OnBnClickedButton1()
 		}
 		
 	}
+	CString sName(curStudent.fio.c_str());
+	CString sGroup;
+	sGroup.Format(_T("Группа #%i"), curStudent.group);
+	CString sCourse;
+	sCourse.Format(_T("Курс #%i"), curStudent.course);
+	FIOblank = sName;
+	Groupblank = sGroup;
+	Courseblank = sCourse;
 	int a = 0;
 	for (int i = 0; i < marksOfStud.mark.size(); i++)
 	{

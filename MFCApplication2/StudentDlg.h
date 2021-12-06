@@ -33,4 +33,7 @@ private:
 public:
 //	afx_msg void OnLbnSelchangeList();
 	CComboBox StudList;
+	CString FIOblank;
+	CString Groupblank;
+	CString Courseblank;
 };

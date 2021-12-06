@@ -12,6 +12,13 @@ public:
 	 int course;
 	 int group;
 	 string fio;
+	 bool studBuyId(int idd) {
+		 if (idd==id)
+		 {
+			 return true;
+		 }
+		 return false;
+	 }
  };
 
  inline istream& operator>>(istream& is, Student& cur) {
