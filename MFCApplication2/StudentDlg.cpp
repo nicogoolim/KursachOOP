@@ -54,6 +54,11 @@ vector<marks> arrMarks;
 void StudentDlg::OnBnClickedButton1()
 {
 	UpdateData(true);
+	int sa = MarksList.GetCount();
+	for (int i = 0; i < sa; i++)
+	{
+		MarksList.DeleteString(0);
+	}
 	int selectedStud = StudList.GetCurSel()+1;
 	marks marksOfStud;
 	vector<string> lessOfStud;
