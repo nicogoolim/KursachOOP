@@ -92,3 +92,28 @@ public:
 		 }
 	 }
  }
+
+ inline Student StudById(vector<Student> arrStud,int id) {
+	 for each (Student var in arrStud)
+	 {
+		 if (var.id == id) {
+			 return var;
+		 }
+	 }
+ }
+ inline marks marksByStudId(vector<marks> arrMarks, int id) {
+	 for each (marks var in arrMarks)
+	 {
+		 if (var.Studid == id) {
+			 return var;
+		 }
+	 }
+ }
+ inline string lessById(vector<lessons> arrLess, int id) {
+	 for each (lessons var in arrLess)
+	 {
+		 if (var.id == id) {
+			 return var.name;
+		 }
+	 }
+ }

@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AddStud.h" />
     <ClInclude Include="DecanDlg.h" />
     <ClInclude Include="FileWorker.h" />
     <ClInclude Include="framework.h" />
@@ -196,6 +197,7 @@
     <ClInclude Include="Person.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddStud.cpp" />
     <ClCompile Include="DecanDlg.cpp" />
     <ClCompile Include="MFCApplication2.cpp" />
     <ClCompile Include="MFCApplication2Dlg.cpp" />

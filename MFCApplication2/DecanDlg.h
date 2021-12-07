@@ -22,4 +22,13 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	virtual BOOL OnInitDialog();
+	afx_msg void OnBnClickedButton1();
+	CButton LessBut;
+	CButton AllLessBut;
+	afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedRadio1();
+	CComboBox LessComboList;
+	afx_msg void OnBnClickedRadio2();
+	CString ChooseDisc;
+	CListBox MarksListDec;
 };
