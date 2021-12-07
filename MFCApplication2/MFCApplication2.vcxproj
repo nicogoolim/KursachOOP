@@ -185,6 +185,7 @@
   <ItemGroup>
     <ClInclude Include="AddStud.h" />
     <ClInclude Include="DecanDlg.h" />
+    <ClInclude Include="EdtMarksDLG.h" />
     <ClInclude Include="FileWorker.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MFCApplication2.h" />
@@ -199,6 +200,7 @@
   <ItemGroup>
     <ClCompile Include="AddStud.cpp" />
     <ClCompile Include="DecanDlg.cpp" />
+    <ClCompile Include="EdtMarksDLG.cpp" />
     <ClCompile Include="MFCApplication2.cpp" />
     <ClCompile Include="MFCApplication2Dlg.cpp" />
     <ClCompile Include="pch.cpp">
