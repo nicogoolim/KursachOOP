@@ -26,5 +26,6 @@ public:
 	int courseEdit;
 	int groupEdit;
 	CString discEdit;
-	CString markEdit;
+	int markEdit;
+	afx_msg void OnBnClickedButton1();
 };

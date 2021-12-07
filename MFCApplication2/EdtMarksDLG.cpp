@@ -21,7 +21,7 @@ EdtMarksDLG::EdtMarksDLG(CWnd* pParent /*=nullptr*/)
 	, courseEdit(0)
 	, groupEdit(0)
 	, discEdit(_T(""))
-	, markEdit(_T(""))
+	, markEdit()
 {
 
 }
@@ -42,6 +42,7 @@ void EdtMarksDLG::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(EdtMarksDLG, CDialogEx)
+	ON_BN_CLICKED(IDC_BUTTON1, &EdtMarksDLG::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -53,7 +54,7 @@ BOOL EdtMarksDLG::OnInitDialog()
 	CDialogEx::OnInitDialog();
 	Student curStud = StudById(arrStud, choosedStudent);
 	marks curMarks = marksByStudId(arrMarks, curStud.id);
-	string curLess = lessById(arrLess, choosedLess);
+	string curLess = lessByIdStr(arrLess, choosedLess);
 	CString FIO(curStud.fio.c_str());
 	CString disc(curLess.c_str());
 	UpdateData(true);
@@ -61,7 +62,34 @@ BOOL EdtMarksDLG::OnInitDialog()
 	groupEdit = curStud.group;
 	courseEdit = curStud.course;
 	discEdit = disc;
+	bool isChecked=false;
+	for each (int var in curMarks.idLess)
+	{
+		if (var == choosedLess) {
+			isChecked = true;
+		}
+	}
+	if (isChecked)
+	{
+		markEdit = curMarks.markByLess(choosedLess);
+	}
+	else {
+		markEdit = 0;
+	}
 	UpdateData(false);
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // Исключение: страница свойств OCX должна возвращать значение FALSE
+}
+
+
+void EdtMarksDLG::OnBnClickedButton1()
+{
+	FileReader<marks> newMarkAdder("marks.txt");
+	UpdateData(true);
+	Student curStud = StudById(arrStud, choosedStudent);
+	marks curMarks = marksByStudId(arrMarks, curStud.id);
+	arrMarks = addMarks(curStud, lessById(arrLess,choosedLess), arrMarks, markEdit);
+	int a = 0;
+	newMarkAdder.write(arrMarks);
+	UpdateData(false);
 }

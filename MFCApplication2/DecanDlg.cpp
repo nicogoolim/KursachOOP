@@ -80,7 +80,7 @@ void DecanDlg::OnBnClickedButton1()
 		string str;
 		for (int i = 0; i < curMarks.idLess.size(); i++)
 		{
-			str = lessById(arrLess, curMarks.idLess[i]) + " " + (char)('0' + curMarks.mark[i]);
+			str = lessByIdStr(arrLess, curMarks.idLess[i]) + " " + (char)('0' + curMarks.mark[i]);
 			marksByLess.push_back(curMarks.mark[i]);
 			marksByStud.push_back(curMarks.mark[i]);
 			CString S(str.c_str());

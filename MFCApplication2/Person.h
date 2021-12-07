@@ -35,6 +35,13 @@ public:
 	 int Studid;
 	 vector<int> idLess;
 	 vector<int> mark;
+
+	 int markByLess(int lessId) {
+		 for (int i = 0; i < idLess.size(); i++)
+		 {
+			 if (idLess[i] == lessId) return mark[i];
+		 }
+	 }
  };
  inline istream& operator>>(istream& is, marks& cur) {
 	 is >> cur.Studid;
@@ -48,7 +55,6 @@ public:
 	 for (int i = 0; i < cur.idLess.size(); i++)
 	 {
 		 os << cur.idLess[i] << " " << cur.mark[i] << " ";
-		 return os;
 	 }
 
 	 return os;
@@ -109,11 +115,50 @@ public:
 		 }
 	 }
  }
- inline string lessById(vector<lessons> arrLess, int id) {
+
+ inline string lessByIdStr(vector<lessons> arrLess, int id) {
 	 for each (lessons var in arrLess)
 	 {
 		 if (var.id == id) {
 			 return var.name;
 		 }
 	 }
+ }
+
+ inline lessons lessById(vector<lessons> arrLess, int id) {
+	 for each (lessons var in arrLess)
+	 {
+		 if (var.id == id) {
+			 return var;
+		 }
+	 }
+ }
+
+ inline vector<marks> addMarks(Student stud, lessons less, vector<marks> mark, int newMark) {
+	 int idLess = less.id;
+	 int idStud = stud.id;
+	 int count = -1;
+	 marks cur;
+	 for each (marks var in mark)
+	 {
+		 count++;
+		 if (idStud == var.Studid)
+		 {
+			 cur = var;
+			 break;
+		 }
+	 }
+	 for (int i = 0; i < cur.idLess.size(); i++)
+	 {
+		 if (cur.idLess[i] == idLess)
+		 {
+			 cur.mark[i] = newMark;
+			 mark[count] = cur;
+			 return mark;
+		 }
+	 }
+	 cur.idLess.push_back(idLess);
+	 cur.mark.push_back(newMark);
+	 mark[count] = cur;
+	 return mark;
  }
